@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">ElementosDeTela</string>
+    <string name="HelloWorld">Você prefere gato ou lobo?</string>
+    <string name="lobo">Lobo</string>
+    <string name="gato">Gato</string>
+    <string name="btnVotar">Votar</string>
+</resources>

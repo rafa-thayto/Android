@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">ToogleButton</string>
+    <string name="titulo">Ativar Música</string>
+    <string name="button">button</string>
+    <string name="on">ativado</string>
+    <string name="off">desativado</string>
+</resources>
