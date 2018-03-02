@@ -3,7 +3,10 @@ package com.example.a06929749974.agenda;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.ContextMenu;
+import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
@@ -20,12 +23,21 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
         listaAlunos= findViewById(R.id.lvListaAlunos);
-        btnAdicionar = findViewById(R.id.btnAdicionar);
 
         contruirLista();
+        listaAlunos.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
+                Aluno aluno = (Aluno) listaAlunos.getItemAtPosition(position);
+                Intent intent = new Intent(MainActivity.this, FormularioAlunoActivity.class);
+                intent.putExtra("aluno", aluno);
+                startActivity(intent);
+                // Toast.makeText(getApplicationContext(), "Aluno: " + aluno.getNome(), Toast.LENGTH_LONG).show();
+            }
+        });
 
+        btnAdicionar = findViewById(R.id.btnAdicionar);
         btnAdicionar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -33,7 +45,34 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        registerForContextMenu(listaAlunos);
+
     } // Fim OnCreate
+
+    @Override
+    public void onCreateContextMenu(ContextMenu menu, View v, final ContextMenu.ContextMenuInfo menuInfo) {
+        MenuItem remover = menu.add("Remover");
+        MenuItem editar = menu.add("Editar");
+        MenuItem compartilhar = menu.add("Compartilhar");
+
+        remover.setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
+            @Override
+            public boolean onMenuItemClick(MenuItem menuItem) {
+                AdapterView.AdapterContextMenuInfo info = (AdapterView.AdapterContextMenuInfo) menuInfo;
+                Aluno aluno = (Aluno) listaAlunos.getItemAtPosition(info.position);
+
+                AlunoDAO dao = new AlunoDAO(MainActivity.this);
+                dao.remover(aluno);
+                dao.close();
+
+                contruirLista();
+
+                Toast.makeText(getApplicationContext(), "Aluno: " + aluno.getNome() + " deletado", Toast.LENGTH_SHORT).show();
+                return false;
+            }
+        });
+    }
 
     private void contruirLista() {
         AlunoDAO dao = new AlunoDAO(this);

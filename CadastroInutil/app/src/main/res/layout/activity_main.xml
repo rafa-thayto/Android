@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="informatica.sp.senai.br.cadastroinutil.MainActivity">
+
+    <EditText
+        android:id="@+id/etNome"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="25dp"
+        android:ems="10"
+        android:hint="Nome"
+        android:inputType="textPersonName"
+        android:textColorLink="@android:color/holo_blue_bright" />
+
+    <EditText
+        android:id="@+id/etDocs"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/etNome"
+        android:layout_alignRight="@+id/etNome"
+        android:layout_below="@+id/etNome"
+        android:layout_marginTop="28dp"
+        android:ems="10"
+        android:hint="CPF / CNPJ"
+        android:inputType="textPersonName"
+        android:textColorLink="@android:color/holo_blue_bright" />
+
+    <Button
+        android:id="@+id/btnCadastrar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="125dp"
+        android:text="@string/cadastrar" />
+
+    <RadioGroup
+        android:id="@+id/rgPessoa"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/btnCadastrar"
+        android:layout_marginBottom="36dp"
+        android:orientation="horizontal">
+
+        <RadioButton
+            android:id="@+id/rbPessoaJuridica"
+            android:layout_width="71dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/pessoajuridica"
+            android:textColorLink="@android:color/holo_blue_dark" />
+
+        <RadioButton
+            android:id="@+id/rbPessoaFisica"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/pessoaFisica"
+            android:textColorLink="@android:color/holo_blue_dark" />
+    </RadioGroup>
+
+</RelativeLayout>

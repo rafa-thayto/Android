@@ -14,6 +14,7 @@ public class FormularioAlunoHelper {
     private EditText endereco;
     private EditText telefone;
     private RatingBar classificacao;
+    private Aluno aluno;
 
     @Override
     public String toString() {
@@ -33,11 +34,10 @@ public class FormularioAlunoHelper {
         endereco = formularioAluno.findViewById(R.id.etEnd);
         telefone = formularioAluno.findViewById(R.id.etTel);
         classificacao = formularioAluno.findViewById(R.id.rbClassificacao);
+        aluno = new Aluno();
     }
 
     public Aluno pegaAluno() {
-        Aluno aluno = new Aluno();
-
         aluno.setNome(nome.getText().toString());
         aluno.setEndereco(email.getText().toString());
         aluno.setTelefone(endereco.getText().toString());
@@ -45,5 +45,14 @@ public class FormularioAlunoHelper {
         aluno.setClassificacao(Double.valueOf(classificacao.getProgress()));
 
         return aluno;
+    }
+
+    public void preencherFornulario(Aluno aluno) {
+        nome.setText(aluno.getNome());
+        endereco.setText(aluno.getEndereco());
+        email.setText(aluno.getEmail());
+        telefone.setText(aluno.getTelefone());
+        classificacao.setProgress(aluno.getClassificacao().intValue());
+        this.aluno = aluno;
     }
 }

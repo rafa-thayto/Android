@@ -18,17 +18,27 @@ public class FormularioAlunoActivity extends AppCompatActivity {
         setContentView(R.layout.activity_formulario_aluno);
 
         btnCadastrar = findViewById(R.id.btnCadastrar);
-
         helper = new FormularioAlunoHelper(this);
+        Intent intent = getIntent();
+        Aluno aluno = (Aluno) intent.getSerializableExtra("aluno");
+
+        if (aluno != null)
+                helper.preencherFornulario(aluno);
+
         btnCadastrar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
                 AlunoDAO dao = new AlunoDAO(FormularioAlunoActivity.this);
                 Aluno aluno = helper.pegaAluno();
-                dao.insere(aluno);
-                dao.close();
 
+                if (aluno.getId() != null)
+                    dao.alterar(aluno);
+                else
+                    dao.insere(aluno);
+
+
+                dao.close();
                 Toast.makeText(getApplicationContext(), "Aluno: " + aluno.getNome() + " Salvo!", Toast.LENGTH_LONG).show();
                 finish();
             }

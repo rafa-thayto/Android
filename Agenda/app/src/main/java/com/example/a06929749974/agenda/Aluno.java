@@ -1,10 +1,12 @@
 package com.example.a06929749974.agenda;
 
+import java.io.Serializable;
+
 /**
  * Created by 06929749974 on 16/02/2018.
  */
 
-class Aluno {
+class Aluno implements Serializable{
 
     private Long id;
     private String nome;
