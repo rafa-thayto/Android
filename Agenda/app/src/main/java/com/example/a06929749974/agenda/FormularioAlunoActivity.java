@@ -25,7 +25,7 @@ public class FormularioAlunoActivity extends AppCompatActivity {
         if (aluno != null)
                 helper.preencherFornulario(aluno);
 
-        btnCadastrar.setOnClickListener(new View.OnClickListener() {
+        btnCadastrar.setOnClickListener(    new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 

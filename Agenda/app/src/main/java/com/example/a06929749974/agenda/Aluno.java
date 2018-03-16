@@ -13,6 +13,7 @@ class Aluno implements Serializable{
     private String endereco;
     private String email;
     private String telefone;
+    private String face;
     private Double classificacao;
 
     public Long getId() {
@@ -53,6 +54,14 @@ class Aluno implements Serializable{
 
     public void setTelefone(String telefone) {
         this.telefone = telefone;
+    }
+
+    public String getFace() {
+        return face;
+    }
+
+    public void setFace(String face) {
+        this.face = face;
     }
 
     public Double getClassificacao() {

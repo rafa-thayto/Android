@@ -13,6 +13,7 @@ public class FormularioAlunoHelper {
     private EditText email;
     private EditText endereco;
     private EditText telefone;
+    private EditText facebook;
     private RatingBar classificacao;
     private Aluno aluno;
 
@@ -23,6 +24,7 @@ public class FormularioAlunoHelper {
                 ", email=" + email +
                 ", endereco=" + endereco +
                 ", telefone=" + telefone +
+                ", facebook=" + facebook +
                 ", classificacao=" + classificacao +
                 '}';
     }
@@ -33,15 +35,17 @@ public class FormularioAlunoHelper {
         email = formularioAluno.findViewById(R.id.etEmail);
         endereco = formularioAluno.findViewById(R.id.etEnd);
         telefone = formularioAluno.findViewById(R.id.etTel);
+        facebook = formularioAluno.findViewById(R.id.etFace);
         classificacao = formularioAluno.findViewById(R.id.rbClassificacao);
         aluno = new Aluno();
     }
 
     public Aluno pegaAluno() {
         aluno.setNome(nome.getText().toString());
-        aluno.setEndereco(email.getText().toString());
-        aluno.setTelefone(endereco.getText().toString());
-        aluno.setEmail(telefone.getText().toString());
+        aluno.setEndereco(endereco.getText().toString());
+        aluno.setTelefone(telefone.getText().toString());
+        aluno.setEmail(email.getText().toString());
+        aluno.setFace(facebook.getText().toString());
         aluno.setClassificacao(Double.valueOf(classificacao.getProgress()));
 
         return aluno;
@@ -52,6 +56,7 @@ public class FormularioAlunoHelper {
         endereco.setText(aluno.getEndereco());
         email.setText(aluno.getEmail());
         telefone.setText(aluno.getTelefone());
+        facebook.setText(aluno.getFace());
         classificacao.setProgress(aluno.getClassificacao().intValue());
         this.aluno = aluno;
     }

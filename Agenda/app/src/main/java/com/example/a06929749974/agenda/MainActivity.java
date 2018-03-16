@@ -1,6 +1,7 @@
 package com.example.a06929749974.agenda;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.ContextMenu;
@@ -72,6 +73,38 @@ public class MainActivity extends AppCompatActivity {
                 return false;
             }
         });
+        // Perfil facebook
+        MenuItem facebook = menu.add("Perfil Facebook");
+        Intent intentFace = new Intent(Intent.ACTION_VIEW);
+        AdapterView.AdapterContextMenuInfo info = (AdapterView.AdapterContextMenuInfo) menuInfo;
+        Aluno aluno = (Aluno) listaAlunos.getItemAtPosition(info.position);
+        String endFace = aluno.getFace();
+        if (!endFace.startsWith("http://www.facebook.com/")) {
+            endFace = "http://www.facebook.com/" + endFace;
+        }
+        intentFace.setData(Uri.parse(endFace));
+        startActivity(intentFace);
+        // fim facebook
+
+        // SMS
+        MenuItem sms = menu.add("Enviar SMS");
+        Intent intentSMS = new Intent(Intent.ACTION_VIEW);
+        intentSMS.setData(Uri.parse("Sms: " + aluno.getTelefone()));
+        sms.setIntent(intentSMS);
+        // Fim SMS
+
+        // Localização
+        MenuItem GPS = menu.add("Mostrar no mapa");
+        Intent intentGPS = new Intent(Intent.ACTION_VIEW);
+        intentGPS.setData(Uri.parse("geo:0,0?q=" + aluno.getEndereco()));
+        GPS.setIntent(intentGPS);
+        // Fim localização
+
+        // Ligação
+        MenuItem ligar = menu.add("Ligar");
+        Intent intentLigar = new Intent(Intent.ACTION_VIEW);
+        intentLigar.setData(Uri.parse("Tel: " + aluno.getTelefone()));
+        ligar.setIntent(intentLigar);
     }
 
     private void contruirLista() {

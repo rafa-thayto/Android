@@ -18,7 +18,7 @@ public class AlunoDAO extends SQLiteOpenHelper {
 
 
     public AlunoDAO(Context context) {
-        super(context, "Agenda", null,1);
+        super(context, "Agenda", null,2);
     }
 
     @Override
@@ -28,6 +28,7 @@ public class AlunoDAO extends SQLiteOpenHelper {
                                         "endereco TEXT NOT NULL, " +
                                         "telefone TEXT NOT NULL," +
                                         "email TEXT NOT NULL, " +
+                                        "facebook TEXT NOT NULL" +
                                         "classificacao REAL)";
         db.execSQL(sql);
     }
@@ -52,6 +53,7 @@ public class AlunoDAO extends SQLiteOpenHelper {
         dados.put("endereco", aluno.getEndereco());
         dados.put("telefone", aluno.getTelefone());
         dados.put("email", aluno.getEmail());
+        dados.put("facebook", aluno.getFace());
         dados.put("classificacao", aluno.getClassificacao());
         return dados;
     }
@@ -69,6 +71,7 @@ public class AlunoDAO extends SQLiteOpenHelper {
             aluno.setEndereco(c.getString(c.getColumnIndex("endereco")));
             aluno.setTelefone(c.getString(c.getColumnIndex("telefone")));
             aluno.setEmail(c.getString(c.getColumnIndex("email")));
+            aluno.setFace(c.getString(c.getColumnIndex("facebook")));
             aluno.setClassificacao(c.getDouble(c.getColumnIndex("classificacao")));
 
             alunos.add(aluno);

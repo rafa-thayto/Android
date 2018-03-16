@@ -57,11 +57,23 @@
             android:hint="Telefone"
             android:inputType="textPersonName" />
 
+        <EditText
+            android:id="@+id/etFace"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/etTel"
+            android:layout_marginTop="12dp"
+            android:ems="10"
+            android:hint="Facebook"
+            android:inputType="textPersonName" />
+
         <RatingBar
             android:id="@+id/rbClassificacao"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/etTel"
+            android:layout_below="@+id/etFace"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="24dp"
             android:numStars="5" />
