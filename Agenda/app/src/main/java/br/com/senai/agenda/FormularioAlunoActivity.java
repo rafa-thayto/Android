@@ -11,6 +11,7 @@ public class FormularioAlunoActivity extends AppCompatActivity {
 
     private Button botaoAdicionarAluno;
     private FormularioAlunoHelper helper;
+    private AlunoDAO dao;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -18,12 +19,18 @@ public class FormularioAlunoActivity extends AppCompatActivity {
 
         botaoAdicionarAluno = findViewById(R.id.btnCadastrar);
         helper = new FormularioAlunoHelper(this);
+        dao = new AlunoDAO(getApplicationContext());
 
-        Intent intent = getIntent();
-        Aluno aluno = (Aluno) intent.getSerializableExtra("aluno");
+        /*Intent intent = getIntent();
+        Aluno aluno = (Aluno) intent.getSerializableExtra("aluno");*/
+        final Bundle extras = getIntent().getExtras();
+        Long alunoId =(extras!= null)? extras.getLong("alunoId"): null;
+        if (alunoId == null){
+            Aluno aluno = new Aluno();
+        }else{
+            Aluno alunoLocalizado = dao.localizar(alunoId);
+            helper.preecherFormulario(alunoLocalizado);
 
-        if(aluno != null){
-            helper.preecherFormulario(aluno);
         }
         botaoAdicionarAluno.setOnClickListener(new View.OnClickListener() {
             @Override

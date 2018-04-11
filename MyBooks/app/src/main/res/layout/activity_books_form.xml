@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".BooksFormActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="@color/background">
+
+        <!-- EditText for Book Name -->
+        <EditText
+            android:id="@+id/etBookName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textPersonName"
+            android:ems="10"
+            android:background="@color/tranparent"
+            android:drawablePadding="12dp"
+            android:padding="8dp"
+            android:hint="Book Name"
+            android:textColorHint="@color/white"
+            android:textColor="@color/white"
+            android:maxLines="1"
+            android:drawableLeft="@drawable/ic_import_contacts_black_24dp"
+            android:layout_marginTop="45dp"
+            />
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/white"
+            />
+
+        <!-- EditText for Book Author -->
+        <EditText
+            android:id="@+id/etBookAuthor"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="text"
+            android:ems="10"
+            android:background="@color/tranparent"
+            android:drawablePadding="12dp"
+            android:padding="8dp"
+            android:hint="Author"
+            android:textColorHint="@color/white"
+            android:textColor="@color/white"
+            android:maxLines="1"
+            android:drawableLeft="@drawable/ic_person_white_24dp"
+            android:layout_marginTop="30dp"
+            />
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/white"
+            />
+
+        <!-- EditText for Book Genre -->
+        <EditText
+            android:id="@+id/etBookGenre"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="text"
+            android:ems="10"
+            android:background="@color/tranparent"
+            android:drawablePadding="12dp"
+            android:padding="8dp"
+            android:hint="Genre"
+            android:textColorHint="@color/white"
+            android:textColor="@color/white"
+            android:maxLines="1"
+            android:drawableLeft="@drawable/ic_book_white_24dp"
+            android:layout_marginTop="30dp"
+            />
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/white"
+            />
+
+        <!-- EditText for Book Publish Company -->
+        <EditText
+            android:id="@+id/etBookPublishCompany"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textPassword"
+            android:ems="10"
+            android:background="@color/tranparent"
+            android:drawablePadding="12dp"
+            android:padding="8dp"
+            android:hint="Publishing company"
+            android:textColorHint="@color/white"
+            android:textColor="@color/white"
+            android:maxLines="1"
+            android:drawableLeft="@drawable/ic_domain_black_24dp"
+            android:layout_marginTop="30dp"
+            />
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/white"
+            />
+
+        <!-- EditText for Book Publish Company -->
+        <EditText
+            android:id="@+id/etBookYear"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textPassword"
+            android:ems="10"
+            android:background="@color/tranparent"
+            android:drawablePadding="12dp"
+            android:padding="8dp"
+            android:hint="Year"
+            android:textColorHint="@color/white"
+            android:textColor="@color/white"
+            android:maxLines="1"
+            android:drawableLeft="@drawable/ic_date_range_black_24dp"
+            android:layout_marginTop="30dp"
+            />
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/white"
+            />
+
+        <!--Button for sign up-->
+        <Button
+            android:id="@+id/btnRegister"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:background="@drawable/gradient"
+            android:textColor="@color/white"
+            android:text="Register Book"
+            android:layout_marginTop="45dp"
+            android:layout_marginBottom="45dp"
+            />
+
+    </LinearLayout>
+    
+</RelativeLayout>

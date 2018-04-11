@@ -6,7 +6,7 @@ import java.io.Serializable;
  * Created by adminLocal on 16/02/2018.
  */
 
-class Aluno implements Serializable{
+public class Aluno implements Serializable{
     private Long id;
     private String nome;
     private String endereco;

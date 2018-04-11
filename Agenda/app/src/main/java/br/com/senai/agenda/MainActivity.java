@@ -15,6 +15,8 @@ import android.widget.Toast;
 
 import java.util.List;
 
+import br.com.senai.agenda.adapter.AlunosAdapter;
+
 public class MainActivity extends AppCompatActivity {
 
     private ListView listaDeAlunos;
@@ -111,7 +113,7 @@ public class MainActivity extends AppCompatActivity {
     private void carregarLista() {
         AlunoDAO dao = new AlunoDAO(this);
         List<Aluno> alunos =  dao.buscarAlunos();
-        ArrayAdapter<Aluno> adaptador = new ArrayAdapter<Aluno>(this, android.R.layout.simple_list_item_1,alunos);
+        AlunosAdapter adaptador = new AlunosAdapter(MainActivity.this,alunos);
         listaDeAlunos.setAdapter(adaptador);
     }
     @Override
