@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".FormActivity">
+
+    <Button
+        android:id="@+id/btnRegister"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Cadastrar"
+        tools:layout_editor_absoluteX="140dp"
+        tools:layout_editor_absoluteY="394dp" />
+
+    <EditText
+        android:id="@+id/etBookTitle"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="Titulo"
+        android:inputType="textPersonName"
+        tools:layout_editor_absoluteX="56dp"
+        tools:layout_editor_absoluteY="213dp" />
+
+    <EditText
+        android:id="@+id/etBookAuthor"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="Autor"
+        android:inputType="textPersonName"
+        tools:layout_editor_absoluteX="56dp"
+        tools:layout_editor_absoluteY="292dp" />
+
+    <ImageView
+        android:id="@+id/ivBookCover"
+        android:layout_width="114dp"
+        android:layout_height="122dp"
+        app:srcCompat="@mipmap/ic_launcher"
+        tools:layout_editor_absoluteX="135dp"
+        tools:layout_editor_absoluteY="36dp" />
+</android.support.constraint.ConstraintLayout>
