@@ -15,15 +15,16 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        supportActionBar!!.hide()
         setContentView(R.layout.activity_main)
 
         // Configuring RecyclerView
         vehiclesList.adapter = VehicleListAdapter(vehicles(), this)
         vehiclesList.layoutManager = StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL)
 
-        val btnRegister = findViewById<FloatingActionButton>(R.id.btnGoToRegister).setOnClickListener({
+        findViewById<FloatingActionButton>(R.id.btnGoToRegister).setOnClickListener{
             startActivity(Intent(this, FormActivity::class.java))
-        })
+        }
     }
 
     private fun vehicles(): List<Vehicle> {

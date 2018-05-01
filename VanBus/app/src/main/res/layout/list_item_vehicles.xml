@@ -28,21 +28,28 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Name"
-                android:textSize="16sp" />
+                android:textSize="16sp"
+                android:layout_marginTop="2.5sp"
+                android:layout_marginLeft="5sp"/>
 
             <TextView
                 android:id="@+id/item_type"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Van or Bus"
-                android:textSize="14sp" />
+                android:textSize="14sp"
+                android:layout_marginTop="2.5sp"
+                android:layout_marginLeft="5sp"/>
 
             <TextView
                 android:id="@+id/item_price"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Price"
-                android:textSize="12sp" />
+                android:textSize="12sp"
+                android:layout_marginTop="2.5sp"
+                android:layout_marginLeft="5sp"
+                android:layout_marginBottom="2.5sp"/>
 
 
         </LinearLayout>
