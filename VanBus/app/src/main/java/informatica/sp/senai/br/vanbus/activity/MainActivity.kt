@@ -1,7 +1,9 @@
 package informatica.sp.senai.br.vanbus.activity
 
-import android.support.v7.app.AppCompatActivity
+import android.content.Intent
 import android.os.Bundle
+import android.support.design.widget.FloatingActionButton
+import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.StaggeredGridLayoutManager
 import informatica.sp.senai.br.vanbus.R
 import informatica.sp.senai.br.vanbus.adapter.VehicleListAdapter
@@ -15,21 +17,23 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val recyclerView = vehiclesList
-        recyclerView.adapter = VehicleListAdapter(vehicles(), this)
+        // Configuring RecyclerView
+        vehiclesList.adapter = VehicleListAdapter(vehicles(), this)
+        vehiclesList.layoutManager = StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL)
 
-        val layoutManager = StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL)
-        recyclerView.layoutManager = layoutManager
+        val btnRegister = findViewById<FloatingActionButton>(R.id.btnGoToRegister).setOnClickListener({
+            startActivity(Intent(this, FormActivity::class.java))
+        })
     }
 
     private fun vehicles(): List<Vehicle> {
         return listOf(
-                Vehicle(imagePath = "/storage/emulated/0/Pictures/vehicles/blue_bus.jpg", name = "Bus1", description = "Bus1", type = VehicleType.BUS, price = 110.0),
-                Vehicle(imagePath = "/storage/emulated/0/Pictures/vehicles/blue_bus.jpg" ,name = "Bus2", description = "Bus2", type = VehicleType.BUS, price = 120.0),
-                Vehicle(imagePath = "/storage/emulated/0/Pictures/vehicles/blue_bus.jpg", name = "Bus3", description = "Bus3", type = VehicleType.BUS, price = 130.0),
-                Vehicle(imagePath = "/storage/emulated/0/Pictures/vehicles/blue_van.jpg", name = "Van1", description = "Van1", type = VehicleType.VAN, price = 210.0),
-                Vehicle(imagePath = "/storage/emulated/0/Pictures/vehicles/blue_van.jpg", name = "Van2", description = "Van2", type = VehicleType.VAN, price = 220.0),
-                Vehicle(imagePath = "/storage/emulated/0/Pictures/vehicles/blue_van.jpg", name = "Van2", description = "Van2", type = VehicleType.VAN, price = 230.0)
+                Vehicle(name = "Bus1", description = "Bus1", type = VehicleType.BUS, price = 110.0),
+                Vehicle(name = "Bus2", description = "Bus2", type = VehicleType.BUS, price = 120.0),
+                Vehicle(name = "Bus3", description = "Bus3", type = VehicleType.BUS, price = 130.0),
+                Vehicle(name = "Van1", description = "Van1", type = VehicleType.VAN, price = 210.0),
+                Vehicle(name = "Van2", description = "Van2", type = VehicleType.VAN, price = 220.0),
+                Vehicle(name = "Van2", description = "Van2", type = VehicleType.VAN, price = 230.0)
         )
     }
 }
