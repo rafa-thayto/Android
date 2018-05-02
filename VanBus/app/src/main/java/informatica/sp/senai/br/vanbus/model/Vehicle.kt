@@ -10,8 +10,8 @@ class Vehicle() {
         this.price = price
     }
     var id: Long? = null
-    var model: String? = null
     var imagePath: String? = null
+    var model: String? = null
     var numberOfDoors: Int? = null
     var description: String? = null
     var type: VehicleType? = null
