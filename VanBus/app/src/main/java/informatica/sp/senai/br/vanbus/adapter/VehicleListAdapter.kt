@@ -8,8 +8,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import informatica.sp.senai.br.vanbus.R
-import informatica.sp.senai.br.vanbus.activity.FormActivity
-import informatica.sp.senai.br.vanbus.activity.MainActivity
+import informatica.sp.senai.br.vanbus.activity.VehiclesFormActivity
 import informatica.sp.senai.br.vanbus.model.Vehicle
 import kotlinx.android.synthetic.main.list_item_vehicles.view.*
 
@@ -30,7 +29,8 @@ class VehicleListAdapter(private val vehicles: List<Vehicle>,
         val vehicle = vehicles[position]
 //        val returnedImage: Bitmap = BitmapFactory.decodeFile(vehicle.imagePath)
 //        holder.itemView.item_image.setImageBitmap(returnedImage)
-        holder.itemView.item_name.text = vehicle.name
+        holder.itemView.item_model.text = vehicle.model
+        holder.itemView.item_doors.text = vehicle.numberOfDoors.toString()
         holder.itemView.item_type.text = vehicle.type.toString()
         holder.itemView.item_price.text = vehicle.price.toString()
     }
@@ -39,7 +39,7 @@ class VehicleListAdapter(private val vehicles: List<Vehicle>,
 
         init {
             itemView.setOnClickListener {
-                val intent = Intent(itemView.context, FormActivity::class.java)
+                val intent = Intent(itemView.context, VehiclesFormActivity::class.java)
 
                 itemView.context.startActivity(intent)
             }

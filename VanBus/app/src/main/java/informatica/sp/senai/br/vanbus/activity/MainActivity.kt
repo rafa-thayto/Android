@@ -23,18 +23,21 @@ class MainActivity : AppCompatActivity() {
         vehiclesList.layoutManager = StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL)
 
         findViewById<FloatingActionButton>(R.id.btnGoToRegister).setOnClickListener{
-            startActivity(Intent(this, FormActivity::class.java))
+            startActivity(Intent(this, VehiclesFormActivity::class.java))
+        }
+        findViewById<FloatingActionButton>(R.id.btnGoToRent).setOnClickListener{
+            startActivity(Intent(this, RentalFormActivity::class.java))
         }
     }
 
     private fun vehicles(): List<Vehicle> {
         return listOf(
-                Vehicle(name = "Bus1", description = "Bus1", type = VehicleType.BUS, price = 110.0),
-                Vehicle(name = "Bus2", description = "Bus2", type = VehicleType.BUS, price = 120.0),
-                Vehicle(name = "Bus3", description = "Bus3", type = VehicleType.BUS, price = 130.0),
-                Vehicle(name = "Van1", description = "Van1", type = VehicleType.VAN, price = 210.0),
-                Vehicle(name = "Van2", description = "Van2", type = VehicleType.VAN, price = 220.0),
-                Vehicle(name = "Van2", description = "Van2", type = VehicleType.VAN, price = 230.0)
+                Vehicle(imagePath = "Caminho da imagem do bang",model = "Bus1", numberOfDoors = 3, description = "Bus1", type = VehicleType.BUS, price = 110.0),
+                Vehicle(imagePath = "Caminho da imagem do bang",model = "Bus2", numberOfDoors = 4, description = "Bus2", type = VehicleType.BUS, price = 120.0),
+                Vehicle(imagePath = "Caminho da imagem do bang",model = "Bus3", numberOfDoors = 2, description = "Bus3", type = VehicleType.BUS, price = 130.0),
+                Vehicle(imagePath = "Caminho da imagem do bang",model = "Van1", numberOfDoors = 3, description = "Van1", type = VehicleType.VAN, price = 210.0),
+                Vehicle(imagePath = "Caminho da imagem do bang",model = "Van2", numberOfDoors = 3, description = "Van2", type = VehicleType.VAN, price = 220.0),
+                Vehicle(imagePath = "Caminho da imagem do bang",model = "Van2", numberOfDoors = 3, description = "Van2", type = VehicleType.VAN, price = 230.0)
         )
     }
 }

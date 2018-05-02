@@ -6,9 +6,10 @@ import android.os.Bundle
 import android.os.Handler
 import informatica.sp.senai.br.vanbus.R
 
-val SPLASH_TIME_OUT: Long = 4000
 
 class SplashActivity : AppCompatActivity() {
+
+    private val SPLASH_TIME_OUT: Long = 4000
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

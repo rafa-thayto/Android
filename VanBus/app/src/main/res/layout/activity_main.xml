@@ -7,16 +7,23 @@
     tools:context=".activity.MainActivity"
     android:orientation="vertical"
     android:layout_gravity="center"
-    android:paddingTop="20dp"
-    android:paddingBottom="20dp"
-    android:paddingLeft="20dp">
+    android:padding="20dp">
 
     <include layout="@layout/content_main" />
 
     <android.support.design.widget.FloatingActionButton
+        android:id="@+id/btnGoToRent"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_gravity="bottom|start"
+        android:layout_margin="@dimen/fab_margin"
+        app:srcCompat="@drawable/ic_description_black_24dp"
+        tools:ignore="VectorDrawableCompat" />
+
+    <android.support.design.widget.FloatingActionButton
         android:id="@+id/btnGoToRegister"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
         android:layout_gravity="bottom|end"
         android:layout_margin="@dimen/fab_margin"
         app:srcCompat="@drawable/ic_add_black_24dp"
