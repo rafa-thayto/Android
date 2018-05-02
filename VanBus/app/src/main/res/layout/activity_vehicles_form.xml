@@ -10,9 +10,9 @@
 
     <ImageView
         android:id="@+id/imgVehicle"
-        android:layout_width="124dp"
-        android:layout_height="122dp"
-        android:layout_marginBottom="33dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
         android:layout_marginTop="16dp"
         app:srcCompat="@mipmap/ic_launcher" />
 
@@ -20,7 +20,7 @@
         android:id="@+id/etModel"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="27dp"
+        android:layout_marginBottom="10dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:ems="10"
@@ -31,12 +31,53 @@
         android:id="@+id/etDoors"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="54dp"
+        android:layout_marginBottom="10dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:ems="10"
         android:hint="Número de portas"
         android:inputType="number"/>
+
+    <EditText
+        android:id="@+id/etDescription"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:ems="10"
+        android:hint="Descrição"
+        android:inputType="text"/>
+
+    <EditText
+        android:id="@+id/etPrice"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:ems="10"
+        android:hint="Preço"
+        android:inputType="numberDecimal"/>
+
+    <RadioGroup
+        android:id="@+id/rgVanBus"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <RadioButton
+            android:id="@+id/rbVan"
+            android:text="Van"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <RadioButton
+            android:id="@+id/rbBus"
+            android:text="Ônibus"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+    </RadioGroup>
 
     <Button
         android:id="@+id/btnRegister"
