@@ -46,7 +46,7 @@ class VehicleDAO : SQLiteOpenHelper {
         db?.execSQL(sql)
     }
 
-    fun insertData(vehicle: Vehicle) {
+    fun insert(vehicle: Vehicle) {
         val db = writableDatabase
         val cv = ContentValues().apply {
             put(COL_IMAGE_PATH, vehicle.imagePath)

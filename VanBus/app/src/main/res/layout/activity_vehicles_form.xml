@@ -67,6 +67,7 @@
 
         <RadioButton
             android:id="@+id/rbVan"
+            android:checked="true"
             android:text="Van"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />

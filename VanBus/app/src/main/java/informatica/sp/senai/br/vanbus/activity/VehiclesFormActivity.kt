@@ -21,7 +21,7 @@ class VehiclesFormActivity : AppCompatActivity() {
         btnRegister.setOnClickListener {
             val dao = VehicleDAO(this)
             val vehicle: Vehicle = helper.getVehicle()
-            dao.insertData(vehicle)
+            dao.insert(vehicle)
             finish()
         }
 

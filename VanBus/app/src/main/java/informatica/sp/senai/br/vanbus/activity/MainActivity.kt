@@ -7,6 +7,7 @@ import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.StaggeredGridLayoutManager
 import informatica.sp.senai.br.vanbus.R
 import informatica.sp.senai.br.vanbus.adapter.VehicleListAdapter
+import informatica.sp.senai.br.vanbus.dao.VehicleDAO
 import informatica.sp.senai.br.vanbus.model.Vehicle
 import informatica.sp.senai.br.vanbus.model.VehicleType
 import kotlinx.android.synthetic.main.content_main.*
@@ -18,8 +19,10 @@ class MainActivity : AppCompatActivity() {
         supportActionBar!!.hide()
         setContentView(R.layout.activity_main)
 
+        val dao = VehicleDAO(this)
+
         // Configuring RecyclerView
-        vehiclesList.adapter = VehicleListAdapter(vehicles(), this)
+        vehiclesList.adapter = VehicleListAdapter(dao.searchAll(), this)
         vehiclesList.layoutManager = StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL)
 
         findViewById<FloatingActionButton>(R.id.btnGoToRegister).setOnClickListener{
@@ -30,6 +33,7 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+    /*
     private fun vehicles(): List<Vehicle> {
         return listOf(
                 Vehicle(imagePath = "Caminho da imagem do bang",model = "Bus1", numberOfDoors = 3, description = "Bus1", type = VehicleType.BUS, price = 110.0),
@@ -40,4 +44,5 @@ class MainActivity : AppCompatActivity() {
                 Vehicle(imagePath = "Caminho da imagem do bang",model = "Van2", numberOfDoors = 3, description = "Van2", type = VehicleType.VAN, price = 230.0)
         )
     }
+    */
 }
