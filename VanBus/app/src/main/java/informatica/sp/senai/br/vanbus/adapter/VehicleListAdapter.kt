@@ -2,8 +2,10 @@ package informatica.sp.senai.br.vanbus.adapter
 
 import android.content.Context
 import android.content.Intent
+import android.graphics.BitmapFactory
 import android.support.v7.widget.RecyclerView
 import android.support.v7.widget.RecyclerView.Adapter
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -29,10 +31,17 @@ class VehicleListAdapter(private val vehicles: List<Vehicle>,
         val vehicle = vehicles[position]
 //        val returnedImage: Bitmap = BitmapFactory.decodeFile(vehicle.imagePath)
 //        holder.itemView.item_image.setImageBitmap(returnedImage)
+
+        val bitmap = BitmapFactory.decodeFile(vehicle.imagePath)
+
+        holder.itemView.item_image.setImageBitmap(bitmap)
+
         holder.itemView.item_model.text = vehicle.model
-        holder.itemView.item_doors.text = vehicle.numberOfDoors.toString()
-        holder.itemView.item_type.text = vehicle.type.toString()
-        holder.itemView.item_price.text = vehicle.price.toString()
+        holder.itemView.item_doors.text = vehicle.numberOfDoors
+        holder.itemView.item_type.text = vehicle.type
+        holder.itemView.item_price.text = vehicle.price
+
+        Log.e("titleD", vehicle.toString())
     }
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {

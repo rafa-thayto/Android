@@ -8,8 +8,6 @@ import android.support.v7.widget.StaggeredGridLayoutManager
 import informatica.sp.senai.br.vanbus.R
 import informatica.sp.senai.br.vanbus.adapter.VehicleListAdapter
 import informatica.sp.senai.br.vanbus.dao.VehicleDAO
-import informatica.sp.senai.br.vanbus.model.Vehicle
-import informatica.sp.senai.br.vanbus.model.VehicleType
 import kotlinx.android.synthetic.main.content_main.*
 
 class MainActivity : AppCompatActivity() {
@@ -19,18 +17,24 @@ class MainActivity : AppCompatActivity() {
         supportActionBar!!.hide()
         setContentView(R.layout.activity_main)
 
+        findViewById<FloatingActionButton>(R.id.btnGoToRegister).setOnClickListener {
+            startActivity(Intent(this, VehiclesFormActivity::class.java))
+        }
+        findViewById<FloatingActionButton>(R.id.btnGoToRent).setOnClickListener {
+            startActivity(Intent(this, RentalFormActivity::class.java))
+        }
+    }
+
+
+    override fun onResume() {
+        super.onResume()
+
         val dao = VehicleDAO(this)
 
         // Configuring RecyclerView
         vehiclesList.adapter = VehicleListAdapter(dao.searchAll(), this)
         vehiclesList.layoutManager = StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL)
 
-        findViewById<FloatingActionButton>(R.id.btnGoToRegister).setOnClickListener{
-            startActivity(Intent(this, VehiclesFormActivity::class.java))
-        }
-        findViewById<FloatingActionButton>(R.id.btnGoToRent).setOnClickListener{
-            startActivity(Intent(this, RentalFormActivity::class.java))
-        }
     }
 
     /*

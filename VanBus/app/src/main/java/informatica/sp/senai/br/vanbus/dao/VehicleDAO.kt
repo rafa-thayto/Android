@@ -52,7 +52,7 @@ class VehicleDAO : SQLiteOpenHelper {
             put(COL_IMAGE_PATH, vehicle.imagePath)
             put(COL_MODEL, vehicle.model)
             put(COL_NUMBER_DOORS, vehicle.numberOfDoors)
-            put(COL_TYPE, vehicle.type?.name)
+            put(COL_TYPE, vehicle.type)
             put(COL_DESCRIPTION, vehicle.description)
             put(COL_PRICE, vehicle.price)
         }
@@ -72,10 +72,10 @@ class VehicleDAO : SQLiteOpenHelper {
             vehicle.id = c.getLong(c.getColumnIndex(COL_ID))
             vehicle.imagePath = c.getString(c.getColumnIndex(COL_IMAGE_PATH))
             vehicle.model = c.getString(c.getColumnIndex(COL_MODEL))
-            vehicle.numberOfDoors = c.getInt(c.getColumnIndex(COL_NUMBER_DOORS))
+            vehicle.numberOfDoors = c.getString(c.getColumnIndex(COL_NUMBER_DOORS))
             vehicle.description = c.getString(c.getColumnIndex(COL_DESCRIPTION))
-            vehicle.type = VehicleType.valueOf(c.getString(c.getColumnIndex(COL_TYPE)))
-            vehicle.price = c.getDouble(c.getColumnIndex(COL_PRICE))
+            vehicle.type = c.getString(c.getColumnIndex(COL_TYPE))
+            vehicle.price = c.getString(c.getColumnIndex(COL_PRICE))
             vehicles.add(vehicle)
         }
         c.close()

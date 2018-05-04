@@ -1,6 +1,10 @@
 package informatica.sp.senai.br.vanbus.helper
 
-import android.widget.*
+import android.util.Log
+import android.util.LogPrinter
+import android.widget.EditText
+import android.widget.ImageView
+import android.widget.RadioGroup
 import informatica.sp.senai.br.vanbus.R
 import informatica.sp.senai.br.vanbus.activity.VehiclesFormActivity
 import informatica.sp.senai.br.vanbus.model.Vehicle
@@ -8,14 +12,16 @@ import informatica.sp.senai.br.vanbus.model.VehicleType
 
 class VehicleFormHelper {
 
-    private val imagePath: ImageView
-    private val model: EditText
-    private val doors: EditText
-    private val description: EditText
-    private val price: EditText
-    private lateinit var type: VehicleType
-    private val radioGroup: RadioGroup
+    val imagePath: ImageView
+    val model: EditText
+    val doors: EditText
+    val description: EditText
+    val price: EditText
+    var type: VehicleType? = VehicleType.VAN
+    val radioGroup: RadioGroup
     private val vehicle: Vehicle
+
+    var imageUri: String? = ""
 
     constructor(form: VehiclesFormActivity) {
         imagePath = form.findViewById(R.id.imgVehicle)
@@ -25,27 +31,38 @@ class VehicleFormHelper {
         description = form.findViewById(R.id.etDescription)
         radioGroup = form.findViewById(R.id.rgVanBus)
 
-        // Setting type of vehicle
-        radioGroup.setOnCheckedChangeListener { _, isChecked ->
-            when (isChecked) {
-                // Van Type
-                R.id.rbVan -> type = VehicleType.VAN
-                // Bus Type
-                R.id.rbBus -> type = VehicleType.BUS
-                else -> Toast.makeText(form, "Erro ao definir tipo de veículo", Toast.LENGTH_SHORT).show()
-            }
-        }
-
         vehicle = Vehicle()
+        // Setting type of vehicle
+//        radioGroup.setOnCheckedChangeListener { _, isChecked ->
+//            when (isChecked) {
+//                // Van Type
+//                R.id.rbVan -> this.vehicle.type = VehicleType.VAN.name
+//                // Bus Type
+//                R.id.rbBus -> this.vehicle.type = VehicleType.BUS.name
+//                else -> Toast.makeText(form, "Erro ao definir tipo de veículo", Toast.LENGTH_SHORT).show()
+//            }
+//        }
+
     }
 
     fun getVehicle(): Vehicle {
-        this.vehicle.imagePath = imagePath.toString()
-        this.vehicle.model = model.toString()
-        this.vehicle.numberOfDoors = doors.toString().toInt()
-        this.vehicle.description = description.toString()
-        this.vehicle.type = this.type
-        this.vehicle.price = price.toString().toDouble()
+
+        Log.e("IMAGE URI NESSA PORRA", "String")
+        Log.e("IMAGE URI NESSA PORRA: ", imageUri)
+        Log.e("IMAGE PATH NESSA PORRA", imagePath.toString())
+
+        this.vehicle.imagePath = imageUri
+        this.vehicle.model = model.text.toString()
+        this.vehicle.numberOfDoors = doors.text.toString()
+        this.vehicle.description = description.text.toString()
+        this.vehicle.price = price.text.toString()
+
+        when (radioGroup.checkedRadioButtonId) {
+        // Van Type
+            R.id.rbVan -> this.vehicle.type = VehicleType.VAN.name
+        // Bus Type
+            R.id.rbBus -> this.vehicle.type = VehicleType.BUS.name
+        }
 
         return vehicle
     }
