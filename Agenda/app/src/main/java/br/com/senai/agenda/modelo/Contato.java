@@ -1,26 +1,34 @@
-package br.com.senai.agenda;
+package br.com.senai.agenda.modelo;
+
+import com.google.gson.annotations.SerializedName;
 
 import java.io.Serializable;
 
 /**
- * Created by adminLocal on 16/02/2018.
+ * Created by adminLocal on 23/02/2018.
  */
 
-public class Aluno implements Serializable{
+public class Contato implements Serializable {
+    @SerializedName("idContato")
     private Long id;
     private String nome;
-    private String endereco;
     private String telefone;
+    private String endereco;
     private String email;
+    @SerializedName("linkFacebook")
     private String face;
+    @SerializedName("ratingBar")
     private Double classificacao;
+    private String caminhoFoto;
 
-    public String getFace() {
-        return face;
+
+
+    public String getCaminhoFoto() {
+        return caminhoFoto;
     }
 
-    public void setFace(String face) {
-        this.face = face;
+    public void setCaminhoFoto(String caminhoFoto) {
+        this.caminhoFoto = caminhoFoto;
     }
 
     public Long getId() {
@@ -39,14 +47,6 @@ public class Aluno implements Serializable{
         this.nome = nome;
     }
 
-    public String getEndereco() {
-        return endereco;
-    }
-
-    public void setEndereco(String endereco) {
-        this.endereco = endereco;
-    }
-
     public String getTelefone() {
         return telefone;
     }
@@ -55,12 +55,28 @@ public class Aluno implements Serializable{
         this.telefone = telefone;
     }
 
+    public String getEndereco() {
+        return endereco;
+    }
+
+    public void setEndereco(String endereco) {
+        this.endereco = endereco;
+    }
+
     public String getEmail() {
         return email;
     }
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public String getFace() {
+        return face;
+    }
+
+    public void setFace(String face) {
+        this.face = face;
     }
 
     public Double getClassificacao() {
@@ -73,7 +89,7 @@ public class Aluno implements Serializable{
 
     @Override
     public String toString() {
-
-        return getId()+" - "+getNome();
+        return getNome();
     }
+
 }

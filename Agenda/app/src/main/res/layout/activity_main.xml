@@ -7,16 +7,16 @@
     tools:context="br.com.senai.agenda.MainActivity">
 
     <ListView
-        android:id="@+id/lvListaAluno"
+        android:id="@+id/listaContatos"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="22dp" />
+        android:layout_height="wrap_content"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="8dp" >
+
+    </ListView>
 
     <Button
-
-        android:id="@+id/btnCadastrarNovo"
+        android:id="@+id/btnAdicionar"
         android:layout_width="55dp"
         android:layout_height="55dp"
         android:layout_alignParentBottom="true"
@@ -27,5 +27,7 @@
         android:stateListAnimator="@null"
         android:text="+"
         android:textColor="@android:color/white"
-        android:textSize="30sp" />
+
+        android:textSize="28sp" />
+
 </RelativeLayout>
