@@ -51,8 +51,22 @@ public class FormularioActivity extends AppCompatActivity{
             Contato contato = new Contato();
         } else {
 
-            Contato contatoLocalizado = dao.localizar(contatoId);
-            helper.preecheFormulario(contatoLocalizado);
+//            Contato contatoLocalizado = dao.localizar(contatoId);
+//            helper.preecheFormulario(contatoLocalizado);
+            Call<Contato> call = new RetrofitInitializer().contatoService().buscarContato(contatoId);
+            call.enqueue(new Callback<Contato>() {
+                @Override
+                public void onResponse(Call<Contato> call, Response<Contato> response) {
+                    if (response.isSuccessful()) {
+                        Contato contatoLocalizado = response.body();
+                    }
+                }
+
+                @Override
+                public void onFailure(Call<Contato> call, Throwable t) {
+                    Toast.makeText(getApplicationContext(), "Erro ao carregar contatos", Toast.LENGTH_SHORT).show();
+                }
+            });
         }
 
         Button botaoFoto = helper.botaoFoto;

@@ -19,12 +19,15 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import br.com.senai.agenda.adapter.RecyclerAdapter;
 import br.com.senai.agenda.holder.ContatosViewHolder;
 import br.com.senai.agenda.modelo.Contato;
-import br.com.senai.agenda.modelo.ContatoDAO;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class MainComMenuLateralActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener, SearchView.OnQueryTextListener {
@@ -33,7 +36,8 @@ public class MainComMenuLateralActivity extends AppCompatActivity
     private RecyclerView recyclerLista;
     private SearchView campoPesquisa;
     private RecyclerAdapter recyclerAdapter;
-    private ContatoDAO contatoDAO;
+    private List<Contato> contatos = new ArrayList<>();
+//    private ContatoDAO contatoDAO;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -64,9 +68,31 @@ public class MainComMenuLateralActivity extends AppCompatActivity
         campoPesquisa = findViewById(R.id.campoPesquisa);
         campoPesquisa.setQueryHint("Digite um nome");
         campoPesquisa.setOnQueryTextListener(this);
-        ContatoDAO dao = new ContatoDAO(this);
+        // ContatoDAO dao = new ContatoDAO(this);
 
-        carregarLista(dao.buscaContato());
+        // carregarLista(dao.buscaContato());
+
+        Call<List<Contato>> listCall = new RetrofitInitializer().contatoService().listarContatos();
+
+        listCall.enqueue(new Callback<List<Contato>>() {
+            @Override
+            public void onResponse(Call<List<Contato>> call, Response<List<Contato>> response) {
+
+                if (response.isSuccessful()) {
+                    contatos = response.body();
+
+                    if (contatos != null) {
+                        carregarLista(contatos);
+                    }
+                }
+
+            }
+
+            @Override
+            public void onFailure(Call<List<Contato>> call, Throwable t) {
+
+            }
+        });
 
     }
 
@@ -138,8 +164,8 @@ public class MainComMenuLateralActivity extends AppCompatActivity
     @Override
     public boolean onQueryTextChange(String newText) {
        // Toast.makeText(this, "Pesquisando", Toast.LENGTH_SHORT).show();
-        ContatoDAO dao = new ContatoDAO(this);
-        carregarLista(dao.buscarNome(newText));
+        // ContatoDAO dao = new ContatoDAO(this);
+        // carregarLista(dao.buscarNome(newText));
         return true;
     }
 
